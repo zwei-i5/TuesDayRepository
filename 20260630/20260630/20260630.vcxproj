@@ -128,6 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="20260630.cpp" />
+    <ClCompile Include="20260630_Function_ishibashi.cpp" />
+    <ClCompile Include="20260630_PracMain_ishibashi.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="20260630_Header_ishibashi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
