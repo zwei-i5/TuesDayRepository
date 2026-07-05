@@ -12,5 +12,5 @@ enum Pull
 };
 //関数プロトタイプ宣言
 int InputCheck();
-void Game();
+void PlayGame();
 void PullCard();
