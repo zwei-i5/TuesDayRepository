@@ -4,67 +4,47 @@
 #include"20260714_Header_ishibashi.h"
 using namespace std;
 
-int InputCheck(int min, int max)
+int playerselect(int min, int max,bool used[])
 {
 	//変数
-	int input;
+	int select;
 	while (true)
 	{
 		//入力
-		cin >> input;
+		cin >> select;
 		//間違っていたら
-		if (INPUT_MIN > input || INPUT_MAX < input)
+		if (select < min || select > max )
 		{
 			//再入力
 			cout << "範囲外です。再入力してください。\n";
+		}
+		else if (used[select - 1])
+		{
+			cout << "使用済み\n";
 		}
 		//あっていたら
 		else
 		{
 			//ループを抜ける
+			used[select - 1] = true;
+			return select - 1;
 			break;
 		}
 	}
-	return input;
+	return select;
 }
-void SW(int choice[])
+int cpuselect(bool used[])
 {
-	switch (choice[10] - 1)
-	{
-	case 0:
-		cout << choice[0];
-		break;
-	case 1:
-		cout << choice[1];
-		break;
-	case 2:
-		cout << choice[2];
-		break;
-	case 3:
-		cout << choice[3];
-		break;
-	case 4:
-		cout << choice[4];
-		break;
-	case 5:
-		cout << choice[5];
-		break;
-	case 6:
-		cout << choice[6];
-		break;
-	case 7:
-		cout << choice[7];
-		break;
-	case 8:
-		cout << choice[8];
-		break;
-	case 9:
-		cout << choice[9];
-		break;
-	}
+	int select;
+	do {
+		select = rand() % INDEX;
+	} while (used[select]);
+	used[select] = true;
 
+	return select;
 }
-void Judge(int pl,int ep,int pp,int cp)
+
+void Judge(int pl,int ep,int& pp,int& cp)
 {
 	if (pl > ep)
 	{
@@ -85,14 +65,30 @@ void Judge(int pl,int ep,int pp,int cp)
 }
 void Result(int p, int c)
 {
-
+	cout << "試合結果\n" <<
+		p << "　VS　" << c << endl;
+	if (p > c)
+	{
+		cout << "プレイヤーの勝利!!";
+	}
+	else if (p == c)
+	{
+		cout << "引き分け";
+	}
+	else
+	{
+		cout << "CPUの勝利!!";
+	}
 }
 void Game()
 {
-	int player[10], cpu[10];
+	int player[INDEX], cpu[INDEX];
+	int p, c;
 	int playerpoint = 0, cpupoint = 0;
 	int turn = 0;
-	int i, j;
+	int i;
+	bool playerused[INDEX] = { false };
+	bool cpuused[INDEX] = { false };
 	//乱数初期化
 	srand((unsigned int)time(NULL));
 	cout << "＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝数字ゲーム＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n" << 
@@ -111,18 +107,18 @@ void Game()
 		cout << cpu[i] << " ";
 	}
 	
-	while (turn <= TURN_COUNT)
+	while (turn < TURN_COUNT)
 	{
 		//入力
 		cout << "手持ちから一つ数字を選択して下さい。\n";
-		
-		player[i] = InputCheck(INPUT_MIN, INPUT_MAX);	
-		cpu[i] = rand() % INDEX;
-		SW(player); cout << " VS "; SW(cpu);
-		Judge(player[10], cpu[10], playerpoint, cpupoint);
-		cout << "プレイヤーの得点：" << playerpoint << "\n"
-			<< "CPUの得点：" << cpupoint << endl;
+		int p = playerselect(INPUT_MIN,INPUT_MAX,playerused);
+		int c = cpuselect(cpuused);
 
+		cout << player[p] << " VS " << cpu[c] << endl;
+		Judge(player[p], cpu[c], playerpoint, cpupoint);
+		cout << "PLAYER:" << playerpoint << "点\n";
+		cout << "CPU:" << cpupoint << "点\n";
 		turn++;
 	}
+	Result(playerpoint, cpupoint);
 }

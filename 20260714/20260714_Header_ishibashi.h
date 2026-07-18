@@ -10,12 +10,13 @@ const int TURN_COUNT = 7;
 
 //関数プロトタイプ宣言
 //入力関数
-int InputCheck(int min, int max);
+int playerselect(int min, int max,bool used[]);
+int cpuselect(bool used[]);
 //判定関数
-void Judge(int pl, int ep, int pp, int cp);
+void Judge(int pl, int ep, int& pp, int& cp);
 //リザルト関数
 void Result(int p,int c);
 //実行関数
 void Game();
 //配列呼び出し
-void SW(int choice[]);
+
