@@ -4,6 +4,6 @@ using namespace std;
 
 void BattleManager::StartBattle(Character* character)
 {
-
+	cout << character->Getname() << endl;
 	character->Attack();
 }
