@@ -2,7 +2,13 @@
 #include<iostream>
 using namespace std;
 
+Megumi::Megumi()
+{
+	name = "伏黒恵\n";
+	hp = 100;
+	Cursedpower = 80;
+}
 void Megumi::UseTechnique()
 {
-	cout << "布瑠部由良由良、八握剣異戒神将魔虚羅" << endl;
+	cout << "術式：式神を召喚する" << endl;
 }

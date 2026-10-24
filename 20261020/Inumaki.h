@@ -3,10 +3,8 @@
 using namespace std;
 class Inumaki:public Sorcerer
 {
-private:
-	int hp = 90;
-	int Cursedpower = 70;
-public:	
+public:
+	Inumaki();
 	void UseTechnique()override;
 
 };

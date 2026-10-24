@@ -3,10 +3,8 @@
 using namespace std;
 class Gojo:public Sorcerer
 {
-private:
-	int hp = 999;
-	int Cursedpower = 999;
 public:
+	Gojo();
 	void UseTechnique()override;
 };
 

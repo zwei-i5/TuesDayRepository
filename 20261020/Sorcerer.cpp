@@ -4,6 +4,12 @@ using namespace std;
 
 void Sorcerer::ShowStatus()
 {
-	cout << "名前："<< name << endl;
+	cout <<
+	cout << "体力：" << &hp << endl;
+	cout << "呪力：" << &Cursedpower << endl;
+}
 
+void Sorcerer::UseTechnique()
+{
+	cout << "術式を使用" << endl;
 }

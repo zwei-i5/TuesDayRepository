@@ -2,7 +2,13 @@
 #include<iostream>
 using namespace std;
 
+Inumaki::Inumaki()
+{
+	name = "狗巻棘\n";
+	hp = 90;
+	Cursedpower = 70;
+}
 void Inumaki::UseTechnique()
 {
-	cout << "つぶれろ！！" << endl;
+	cout << "術式：呪言を使用する" << endl;
 }

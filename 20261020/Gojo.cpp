@@ -2,7 +2,13 @@
 #include<iostream>
 using namespace std;
 
+Gojo::Gojo()
+{
+	name = "五条悟\n";
+	hp = 999;
+	Cursedpower = 999;
+}
 void Gojo::UseTechnique()
 {
-	cout << "領域展開、無量空処" << endl;
+	cout << "術式：六眼、無下限術式を使用する" << endl;
 }
