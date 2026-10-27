@@ -5,7 +5,7 @@ using namespace std;
 class Megumi:public Sorcerer
 {
 public:
-	Megumi();
+	Megumi(): Sorcerer(100, 80) {}
 	void UseTechnique()override;
 };
 

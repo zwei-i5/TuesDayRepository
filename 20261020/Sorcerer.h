@@ -3,10 +3,11 @@
 class Sorcerer
 {
 protected:
-	string name;
+	
 	int hp;
-	int Cursedpower;
+	int power;
 public:
+	Sorcerer(int h, int p) :hp(h), power(p) {}
 	virtual void ShowStatus();
 	virtual void UseTechnique() = 0;
 };

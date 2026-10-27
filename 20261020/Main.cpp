@@ -12,10 +12,11 @@ int main()
 	
 	Sorcerer* character[3] = { &megumi,&inumaki,&gojo };
 
-	for (int i = 0; i < 3; i++)
+	for (Sorcerer * c : character)
 	{
-		character[i]->ShowStatus();
-		character[i]->UseTechnique();
+		c->ShowStatus();
+		c->UseTechnique();
+		cout << "=========================\n";
 	}
 
 

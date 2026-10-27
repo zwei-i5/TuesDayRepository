@@ -4,7 +4,8 @@ using namespace std;
 class Gojo:public Sorcerer
 {
 public:
-	Gojo();
+	Gojo() : Sorcerer(999, 999) {}
 	void UseTechnique()override;
+
 };
 

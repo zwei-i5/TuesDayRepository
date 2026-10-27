@@ -4,7 +4,7 @@ using namespace std;
 class Inumaki:public Sorcerer
 {
 public:
-	Inumaki();
+	Inumaki() : Sorcerer(90, 70) {}
 	void UseTechnique()override;
 
 };

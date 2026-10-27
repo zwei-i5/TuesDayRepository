@@ -1,12 +1,12 @@
 #include "Sorcerer.h"
 #include<iostream>
+#include<string>
 using namespace std;
 
 void Sorcerer::ShowStatus()
 {
-	cout <<
-	cout << "体力：" << &hp << endl;
-	cout << "呪力：" << &Cursedpower << endl;
+	cout << "体力："<< hp <<  endl;
+	cout << "呪力：" << power  <<endl;
 }
 
 void Sorcerer::UseTechnique()
