@@ -1,11 +1,11 @@
 #include "Enemy.h"
 #include<iostream>
-#include<ctime>
+
 using namespace std;
 
-Enemy::Enemy()
+Enemy::Enemy(int hp)
 {
-	this->hp = (rand() % 70) + 30;
+	this->hp = hp;
 }
 
 void Enemy::ShowHP()const
@@ -14,3 +14,18 @@ void Enemy::ShowHP()const
 }
 
 Enemy::~Enemy() {}
+
+void Enemy::Damage(int damage)
+{
+	hp -= damage;
+	if (hp < 0)
+	{
+		hp = 0;
+	}
+	
+}
+
+int Enemy::GetHp()const
+{
+	return hp;
+}
