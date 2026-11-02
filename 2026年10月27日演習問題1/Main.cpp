@@ -47,16 +47,16 @@ int main(void)
 		enemies[i].ShowHP();
 	}
 	cin >> choice;
-	if (choice > 0 && choice < enemies.size())
+	if (choice > 0 && choice-1 < enemies.size())
 	{
 		enemies[choice-1].Damage(doattack);
 		cout << choice << "”Ô–Ú‚Ì“G‚É" <<
 			doattack << "‚Ìƒ_ƒ[ƒWII" << endl;
 		enemies[choice-1].GetHp();
-		if (enemies[choice].GetHp() == 0)
+		if (enemies[choice-1].GetHp() == 0)
 		{
 			cout << "“G‚ð“|‚µ‚Ü‚µ‚½B" << endl;
-			enemies.erase(enemies.begin() + choice);
+			enemies.erase(enemies.begin() + choice -1);
 		}
 		for (const Enemy& enemy : enemies)
 		{
